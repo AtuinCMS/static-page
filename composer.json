@@ -1,5 +1,5 @@
 {
-  "name": "atuin/staticPage",
+  "name": "atuin/static_page",
   "description": "Atuin Static Pages System",
   "keywords": [
     "yii",
@@ -23,7 +23,7 @@
   },
   "autoload": {
     "psr-4": {
-      "atuin\\staticPage\\": ""
+      "atuin\\static_page\\": ""
     }
   }
 }

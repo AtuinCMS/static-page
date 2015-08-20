@@ -1,6 +1,6 @@
 <?php
 
-namespace atuin\staticPage;
+namespace atuin\static_page;
 
 
 class Module extends \atuin\skeleton\Module

@@ -1,5 +1,5 @@
 <?php
-namespace atuin\staticPage\models;
+namespace atuin\static_page\models;
 
 use yii\data\ActiveDataProvider;
 use yii\helpers\VarDumper;

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace atuin\staticPage\models;
+namespace atuin\static_page\models;
 
 
 use amnah\yii2\user\models\User;

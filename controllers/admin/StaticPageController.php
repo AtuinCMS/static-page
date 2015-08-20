@@ -1,5 +1,5 @@
 <?php
-namespace atuin\staticPage\controllers\admin;
+namespace atuin\static_page\controllers\admin;
 
 use atuin\staticPage\models\StaticPlugin;
 use atuin\staticPage\models\StaticPluginSearch;

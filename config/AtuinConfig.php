@@ -1,6 +1,6 @@
 <?php
 
-namespace atuin\staticPage\config;
+namespace atuin\static_page\config;
 
 
 use atuin\apps\models\Plugin;
