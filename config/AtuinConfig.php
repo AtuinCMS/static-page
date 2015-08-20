@@ -91,13 +91,19 @@ class AtuinConfig extends \atuin\skeleton\config\AtuinConfig
 
         // Adds the basic Page Sections
 
-        if (is_null(PageSections::findOne(['name' => 'One column'])))
+        $oneColSection = PageSections::findOne(['name' => 'One column']);
+
+        if (is_null($oneColSection))
         {
             $section = new PageSections();
             $section->name = 'One column';
             $section->cols = 1;
             $section->cols_sizes = '12';
             $section->save();
+        }
+        else
+        {
+            $section = $oneColSection;
         }
 
 
