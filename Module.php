@@ -6,7 +6,7 @@ namespace atuin\static_page;
 class Module extends \atuin\skeleton\Module
 {
 
-    protected static $_id = 'staticPage';
+    protected static $_id = 'static_page';
 
     protected static $_version = '0.0.1';
 

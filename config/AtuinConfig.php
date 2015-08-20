@@ -116,6 +116,7 @@ class AtuinConfig extends \atuin\skeleton\config\AtuinConfig
         $pageDesign->page_reference_id = $pageReference->id;
         $pageDesign->section_id = $section->id;
         $pageDesign->plugins = json_encode([[$plugin->id]]);
+        $pageDesign->save();
 
     }
 
