@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 
-/* @var \atuin\engine\widgets\staticPage\models\StaticPlugin $staticPlugin */
+/* @var \atuin\static_page\models\StaticPlugin $staticPlugin */
 ?>
 
 

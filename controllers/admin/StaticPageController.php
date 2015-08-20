@@ -1,8 +1,8 @@
 <?php
 namespace atuin\static_page\controllers\admin;
 
-use atuin\staticPage\models\StaticPlugin;
-use atuin\staticPage\models\StaticPluginSearch;
+use atuin\static_page\models\StaticPlugin;
+use atuin\static_page\models\StaticPluginSearch;
 use atuin\skeleton\controllers\admin\BaseAdminController;
 use Yii;
 

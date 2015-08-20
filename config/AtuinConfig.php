@@ -8,7 +8,7 @@ use atuin\engine\models\Page;
 use atuin\engine\models\PageDesign;
 use atuin\engine\models\PageReference;
 use atuin\engine\models\PageSections;
-use atuin\staticPage\models\StaticPlugin;
+use atuin\static_page\models\StaticPlugin;
 
 
 /**
@@ -53,7 +53,7 @@ class AtuinConfig extends \atuin\skeleton\config\AtuinConfig
      */
     public function downMenu()
     {
-
+        $this->menuItems->delete_menu_item('pages_static');
     }
 
     /**
@@ -91,7 +91,8 @@ class AtuinConfig extends \atuin\skeleton\config\AtuinConfig
 
         // Adds the basic Page Sections
 
-        if (is_null(PageSections::findOne(['name' => 'One column']))) {
+        if (is_null(PageSections::findOne(['name' => 'One column'])))
+        {
             $section = new PageSections();
             $section->name = 'One column';
             $section->cols = 1;
@@ -118,12 +119,18 @@ class AtuinConfig extends \atuin\skeleton\config\AtuinConfig
      */
     public function downManual()
     {
-        /** @var Page $staticPage */
-        $staticPage = Page::findOne(['name' => 'Static page']);
+        // TODO mejorar el borrador
 
-        $plugin = Plugin::findOne(['namespace' => StaticPlugin::className()]);
-        
-        PageReference::deleteAll(['page_id' => $staticPage->id]);
+        /** @var Page $staticPage */
+    //    $staticPage = Page::findOne(['name' => 'Static page']);
+
+     //   Plugin::deleteAll(['namespace' => StaticPlugin::className()]);
+
+       // $pageReferences = PageReference::find()->where(['page_id'])->select('id')->all();
+
+
+
+     //   PageReference::deleteAll(['page_id' => $staticPage->id]);
 
 
     }

@@ -2,7 +2,6 @@
 namespace atuin\static_page\models;
 
 use yii\data\ActiveDataProvider;
-use yii\helpers\VarDumper;
 
 /**
  * Class StaticPluginSearch
@@ -34,7 +33,7 @@ class StaticPluginSearch extends StaticPlugin
             [['id', 'author_id', 'author', 'lastEditor', 'last_editor_id', 'title', 'url', 'text', 'creation_date', 'update_date'], 'safe'],
         ];
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -55,11 +54,11 @@ class StaticPluginSearch extends StaticPlugin
         // Adding inner joins to be able to search authors and editors in the gridView
 
         $query = StaticPlugin::find()->with('author', 'lastEditor')->
-            innerJoin('user as user_author', 'user_author.id = ' . $this->tableName() . '.author_id')->
-            innerJoin('user as user_editor', 'user_editor.id = ' . $this->tableName() . '.last_editor_id');
-        
+        innerJoin('user as user_author', 'user_author.id = ' . $this->tableName() . '.author_id')->
+        innerJoin('user as user_editor', 'user_editor.id = ' . $this->tableName() . '.last_editor_id');
+
         // create data provider
-        
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -92,7 +91,7 @@ class StaticPluginSearch extends StaticPlugin
 
         $query->andFilterWhere(['like', 'user_author.username', $this->author]);
         $query->andFilterWhere(['like', 'user_editor.username', $this->lastEditor]);
-        
+
         return $dataProvider;
     }
 }

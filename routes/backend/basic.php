@@ -9,8 +9,8 @@ Route::pattern('id', '\d+');
  */
 Route::filter('checkStaticPage', function () {
 
-    /** @var \atuin\staticPage\models\StaticPlugin $staticPlugin */
-    $staticPlugin = \atuin\staticPage\models\StaticPlugin::findOne(Route::input('id'));
+    /** @var \atuin\static_page\models\StaticPlugin $staticPlugin */
+    $staticPlugin = \atuin\static_page\models\StaticPlugin::findOne(Route::input('id'));
 
     if (is_null($staticPlugin)) {
         throw new \yii\web\NotFoundHttpException(Yii::t('admin', "Static page doesn't exist."));

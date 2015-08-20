@@ -7,7 +7,7 @@ class m0000000_000005_atuin_static_page_migration extends \yii\db\Migration
 
     private function staticPluginTableName()
     {
-        return \atuin\staticPage\models\StaticPlugin::tableName();
+        return \atuin\static_page\models\StaticPlugin::tableName();
     }
 
 

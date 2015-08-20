@@ -1,6 +1,6 @@
 <?php
 /* @var $this yii\web\View */
-/* @var $searchModel \atuin\engine\widgets\staticPage\models\StaticPluginSearch */
+/* @var $searchModel \atuin\static_page\models\StaticPluginSearch */
 /* @var $dataProvider \yii\data\ActiveDataProvider */
 use yii\helpers\Html;
 
