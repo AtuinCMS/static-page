@@ -77,20 +77,30 @@ class AtuinConfig extends \atuin\skeleton\config\AtuinConfig
     public function upManual()
     {
         // Adds the static page
-        $page = new Page();
-        $page->name = 'Static page';
-        $page->parameters = json_encode([['class' => StaticPlugin::className()]]);
-        $page->save();
+        if (Page::findOne(['name' => 'Static page']) === NULL)
+        {
+            $page = new Page();
+            $page->name = 'Static page';
+            $page->parameters = json_encode([['class' => StaticPlugin::className()]]);
+            $page->save();
+        }
+        else
+        {
+            $page = Page::findOne(['name' => 'Static page']);
+        }
 
         // Adds the static page plugin
         // used in the static pages
-        $plugin = new Plugin();
-        $plugin->namespace = StaticPlugin::className();
-        $plugin->private = TRUE;
-        $plugin->save();
+        if (Plugin::findOne(['namespace' => StaticPlugin::className()]) === NULL)
+        {
+            $plugin = new Plugin();
+            $plugin->namespace = StaticPlugin::className();
+            $plugin->private = TRUE;
+            $plugin->save();
+        }
+
 
         // Adds the basic Page Sections
-
         $oneColSection = PageSections::findOne(['name' => 'One column']);
 
         if (is_null($oneColSection))
@@ -108,15 +118,18 @@ class AtuinConfig extends \atuin\skeleton\config\AtuinConfig
 
 
         // Adds the Static Page Design
-        $pageReference = new PageReference();
-        $pageReference->page_id = $page->id;
-        $pageReference->save();
+        if (PageReference::findOne(['page_id' => $page->id, 'reference_id' => NULL]) === NULL)
+        {
+            $pageReference = new PageReference();
+            $pageReference->page_id = $page->id;
+            $pageReference->save();
 
-        $pageDesign = new PageDesign();
-        $pageDesign->page_reference_id = $pageReference->id;
-        $pageDesign->section_id = $section->id;
-        $pageDesign->plugins = json_encode([[$plugin->id]]);
-        $pageDesign->save();
+            $pageDesign = new PageDesign();
+            $pageDesign->page_reference_id = $pageReference->id;
+            $pageDesign->section_id = $section->id;
+            $pageDesign->plugins = json_encode([[$plugin->id]]);
+            $pageDesign->save();
+        }
 
     }
 
@@ -129,15 +142,14 @@ class AtuinConfig extends \atuin\skeleton\config\AtuinConfig
         // TODO mejorar el borrador
 
         /** @var Page $staticPage */
-    //    $staticPage = Page::findOne(['name' => 'Static page']);
+        //    $staticPage = Page::findOne(['name' => 'Static page']);
 
-     //   Plugin::deleteAll(['namespace' => StaticPlugin::className()]);
+        //   Plugin::deleteAll(['namespace' => StaticPlugin::className()]);
 
-       // $pageReferences = PageReference::find()->where(['page_id'])->select('id')->all();
+        // $pageReferences = PageReference::find()->where(['page_id'])->select('id')->all();
 
 
-
-     //   PageReference::deleteAll(['page_id' => $staticPage->id]);
+        //   PageReference::deleteAll(['page_id' => $staticPage->id]);
 
 
     }
