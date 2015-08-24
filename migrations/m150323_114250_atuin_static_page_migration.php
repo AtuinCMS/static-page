@@ -37,8 +37,7 @@ class m150323_114250_atuin_static_page_migration extends \yii\db\Migration
                 'last_editor_id' => Schema::TYPE_INTEGER
             ], $tableOptions);
         }
-
-
+        
     }
 
 
