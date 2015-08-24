@@ -14,7 +14,7 @@ class m150323_114250_atuin_static_page_migration extends \yii\db\Migration
     public function safeUp()
     {
 
-        if (!is_null(Yii::$app->db->schema->getTableSchema($this->staticPluginTableName(), TRUE)))
+        if (is_null(Yii::$app->db->schema->getTableSchema($this->staticPluginTableName(), TRUE)))
         {
             $tableOptions = NULL;
             if (Yii::$app->db->driverName === 'mysql')
@@ -37,9 +37,8 @@ class m150323_114250_atuin_static_page_migration extends \yii\db\Migration
                 'last_editor_id' => Schema::TYPE_INTEGER
             ], $tableOptions);
         }
-        
-    }
 
+    }
 
     public function safeDown()
     {
